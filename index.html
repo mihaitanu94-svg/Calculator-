@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculator Serviciu</title>
+    <style>
+        body { font-family: sans-serif; padding: 20px; background: #121212; color: white; }
+        .box { background: #1e1e1e; padding: 20px; border-radius: 15px; border: 1px solid #333; }
+        h2 { text-align: center; color: #00ff88; }
+        label { display: block; margin-top: 15px; color: #aaa; }
+        input { width: 100%; padding: 12px; margin-top: 5px; border: 1px solid #444; border-radius: 8px; background: #252525; color: white; box-sizing: border-box; font-size: 16px; }
+        button { width: 100%; padding: 15px; background: #00ff88; color: black; border: none; border-radius: 8px; font-size: 18px; font-weight: bold; margin-top: 25px; }
+        .res { margin-top: 20px; padding: 15px; background: #252525; border-radius: 8px; border: 1px solid #00ff88; display: none; text-align: center; }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h2>Calculatorul Meu</h2>
+        <label>Etichete:</label> <input type="number" id="e">
+        <label>Folii:</label> <input type="number" id="f">
+        <label>Lazi:</label> <input type="number" id="l">
+        <label>Cutite:</label> <input type="number" id="c">
+        <label>Schimb Sort:</label> <input type="number" id="s">
+        <label>Curatenie (min):</label> <input type="number" id="cur">
+        <button onclick="calc()">CALCULEAZA</button>
+        <div id="r" class="res">
+            Punctaj: <span id="tot">0</span><br>
+            <strong>PREMIE: 135%</strong>
+        </div>
+    </div>
+    <script>
+        function calc() {
+            let val = (id) => parseFloat(document.getElementById(id).value || 0);
+            let total = (val('e')*1) + (val('f')*5) + (val('l')*2) + (val('c')*10) + (val('s')*15) + (val('cur')*0.5);
+            document.getElementById('tot').innerText = total.toFixed(2);
+            document.getElementById('r').style.display = 'block';
+        }
+    </script>
+</body>
+</html>
